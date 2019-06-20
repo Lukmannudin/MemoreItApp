@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/item_semi_pro_photo_session"
+          android:title="Semi Pro"
+          app:showAsAction="ifRoom"
+          android:icon="@drawable/semipro"
+    />
+    <item android:id="@+id/item_professional_photo_session"
+          android:title="Professional"
+          app:showAsAction="ifRoom"
+          android:icon="@drawable/professional"
+    />
+</menu>
