@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="50dp"
+    tools:context=".pick_date.PickDateActivity"
+    >
+
+<androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".pick_date.PickDateActivity">
+
+    <CalendarView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/horizontal_margin_padding"
+            android:layout_marginEnd="@dimen/horizontal_margin_padding"
+            android:layout_marginTop="@dimen/vertical_margin_padding"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:id="@+id/calendarView"/>
+
+    <TextView
+            android:id="@+id/select_a_time"
+            android:text="Select a Time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/horizontal_margin_padding"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/heading_3"
+            app:layout_constraintTop_toBottomOf="@+id/calendarView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    <LinearLayout
+            android:layout_marginTop="30dp"
+            android:id="@+id/pick_date_radio_group_linear_layout"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/select_a_time"
+            android:layout_marginStart="@dimen/horizontal_margin_padding"
+            android:layout_marginEnd="@dimen/horizontal_margin_padding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/select_a_time"
+        >
+            <RadioButton
+                    android:id="@+id/pick_date_radio_btn_8am"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/horizontal_margin_padding"
+                    android:text="8:00 am"
+            />
+            <RadioButton
+                    android:id="@+id/pick_date_radio_btn_9am"
+                    android:text="9:00 am"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <RadioButton
+                    android:id="@+id/pick_date_radio_btn_10am"
+                    android:text="10:00 am"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+        </RadioGroup>
+        <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+        >
+            <RadioButton
+                    android:id="@+id/pick_date_radio_btn_11am"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/horizontal_margin_padding"
+                    android:text="11:00 am"
+            />
+            <RadioButton
+                    android:id="@+id/pick_date_radio_btn_12pm"
+                    android:text="12:00 pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <RadioButton
+                    android:id="@+id/pick_date_radio_btn_1pm"
+                    android:text="1:00 pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+        </RadioGroup>
+        <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+        >
+            <RadioButton
+                    android:id="@+id/pick_date_radio_btn_2pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/horizontal_margin_padding"
+                    android:text="2:00 pm"
+            />
+            <RadioButton
+                    android:id="@+id/pick_date_radio_btn_3pm"
+                    android:text="3:00 pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <RadioButton
+                    android:id="@+id/pick_date_radio_btn_4pm"
+                    android:text="4:00 pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+        </RadioGroup>
+        <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+        >
+            <RadioButton
+                    android:id="@+id/pick_date_radio_btn_5pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/horizontal_margin_padding"
+                    android:text="5:00 pm"
+            />
+            <RadioButton
+                    android:id="@+id/pick_date_radio_btn_6pm"
+                    android:text="6:00 pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <Button
+            android:id="@+id/pick_date_btn_next"
+            android:text="Next"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/horizontal_margin_padding"
+            android:layout_marginEnd="@dimen/horizontal_margin_padding"
+            android:background="@drawable/button_standard"
+            app:layout_constraintTop_toBottomOf="@id/pick_date_radio_group_linear_layout"
+    />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

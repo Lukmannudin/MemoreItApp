@@ -1,6 +1,7 @@
 package com.oleg.memoreitapp.bandung_photo_session
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,10 +10,10 @@ import com.oleg.memoreitapp.R
 import com.oleg.memoreitapp.model.PhotoSession
 import kotlinx.android.synthetic.main.item_photo_session.view.*
 
-class PhotoSessionAdapter (
-    private val context: Context,
-    private val dataset: List<PhotoSession>,
-    private val listener: PhotoSessionOneFragment.PhotoSessionItemListener
+class PhotoSessionAdapter(
+        private val context: Context?,
+        private val dataset: List<PhotoSession>,
+        private val listener: PhotoSessionOneFragment.PhotoSessionItemListener
 ) :
         RecyclerView.Adapter<PhotoSessionAdapter.PhotoSessionHolder>(){
 
@@ -28,7 +29,9 @@ class PhotoSessionAdapter (
     }
 
     override fun onBindViewHolder(holder: PhotoSessionHolder, position: Int) {
-        holder.bindItem(context, dataset[position],listener)
+        if (context != null) {
+            holder.bindItem(context, dataset[position],listener)
+        }
     }
 
     class PhotoSessionHolder(view: View):RecyclerView.ViewHolder(view) {
@@ -36,13 +39,15 @@ class PhotoSessionAdapter (
         private val title = view.tv_photo_session_title_item
         private val longPhotographing = view.tv_photo_session_long_item
         private val price = view.tv_photo_session_price_item
+        private val btn_book = view.btn_photo_session_book_item
 
         fun bindItem(context: Context, photoSession: PhotoSession,
                      listener: PhotoSessionOneFragment.PhotoSessionItemListener){
-
+            photoThumbnail.setImageResource(photoSession.imageUrl.toInt())
             title.text = photoSession.title
-            longPhotographing.text = photoSession.long.toString()
+            longPhotographing.text = photoSession.long.toString() + " hr"
             price.text = photoSession.price.toString()
+            btn_book.setOnClickListener { listener.onPhotoSessionClick(photoSession) }
         }
     }
 }

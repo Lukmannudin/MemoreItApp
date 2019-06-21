@@ -1,4 +1,4 @@
-package com.oleg.memoreitapp.findcity
+package com.oleg.memoreitapp.find_city
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -17,7 +17,7 @@ class FindCityActivity : AppCompatActivity() {
     }
 
 
-    fun setupViewPager(viewPager: ViewPager) {
+    private fun setupViewPager(viewPager: ViewPager) {
         val adapter = FindCityPagerAdapter(supportFragmentManager)
         adapter.addFragment(CityOneFragment.newInstance())
         adapter.addFragment(CityTwoFragment.newInstance())

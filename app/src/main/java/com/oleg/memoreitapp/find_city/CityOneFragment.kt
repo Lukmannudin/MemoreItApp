@@ -1,4 +1,4 @@
-package com.oleg.memoreitapp.findcity
+package com.oleg.memoreitapp.find_city
 
 import android.content.Intent
 import android.net.Uri
@@ -37,6 +37,7 @@ class CityOneFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_city_one, container, false)
+
         view.tv_findcity_lembang_title.setOnClickListener {
             val intent = Intent(context, FindPhotographerActivity::class.java)
             startActivity(intent)

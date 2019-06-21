@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".review_booking.ReviewBookingActivity">
+
+    <TextView
+        android:id="@+id/tv_review_booking_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin_padding"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="@dimen/horizontal_margin_padding"
+        android:text="Bandung Pro Photo Session"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/heading_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_review_booking_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin_padding"
+        android:layout_marginTop="@dimen/vertical_margin_padding"
+        android:layout_marginEnd="@dimen/horizontal_margin_padding"
+        android:text="3 hr"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/heading_3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_review_booking_title" />
+
+    <TextView
+        android:id="@+id/tv_review_booking_divider_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin_padding"
+        android:layout_marginTop="@dimen/vertical_margin_padding"
+        android:text="|"
+        android:textSize="@dimen/heading_3"
+        app:layout_constraintStart_toEndOf="@+id/tv_review_booking_duration"
+        app:layout_constraintTop_toBottomOf="@id/tv_review_booking_title" />
+
+    <TextView
+        android:id="@+id/tv_review_booking_divider_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin_padding"
+        android:layout_marginTop="@dimen/vertical_margin_padding"
+        android:text="Rp. 2000,000"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/heading_3"
+        app:layout_constraintStart_toEndOf="@+id/tv_review_booking_divider_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_review_booking_title" />
+
+    <View
+        android:id="@+id/view_review_booking__top_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/horizontal_margin_padding"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="@dimen/horizontal_margin_padding"
+        android:background="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@+id/tv_review_booking_divider_price"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/tv_review_booking_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin_padding"
+        android:layout_marginTop="@dimen/vertical_margin_padding"
+        android:layout_marginEnd="@dimen/horizontal_margin_padding"
+        android:text="3 July, 2019"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/heading_3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_review_booking__top_divider" />
+
+    <TextView
+        android:id="@+id/tv_review_booking_at_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin_padding"
+        android:layout_marginTop="@dimen/vertical_margin_padding"
+        android:text="8:00 am"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/heading_3"
+        app:layout_constraintStart_toEndOf="@+id/tv_review_booking_date"
+        app:layout_constraintTop_toBottomOf="@id/view_review_booking__top_divider" />
+
+    <TextView
+        android:id="@+id/tv_review_booking_studio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin_padding"
+        android:layout_marginTop="@dimen/vertical_margin_padding"
+        android:text="Bandung Pro Photographer"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/heading_3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_review_booking_date" />
+
+    <TextView
+        android:id="@+id/tv_review_booking_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin_padding"
+        android:layout_marginTop="@dimen/vertical_margin_padding"
+        android:text="Bandung,"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/heading_3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_review_booking_studio" />
+
+    <TextView
+        android:id="@+id/tv_review_booking_country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="@dimen/vertical_margin_padding"
+        android:text="Indonesia"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/heading_3"
+        app:layout_constraintStart_toEndOf="@+id/tv_review_booking_city"
+        app:layout_constraintTop_toBottomOf="@id/tv_review_booking_studio" />
+
+    <Button
+        android:id="@+id/btn_review_booking_country"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin_padding"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="@dimen/horizontal_margin_padding"
+        android:background="@drawable/button_standard"
+        android:text="Next"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/tv_review_booking_country" />
+
+    <TextView
+        android:id="@+id/tv_review_booking_cancel_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin_padding"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="@dimen/horizontal_margin_padding"
+        android:text="Cancellation Policy"
+        app:layout_constraintTop_toBottomOf="@id/btn_review_booking_country" />
+
+    <TextView
+        android:id="@+id/tv_review_booking_cancel_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin_padding"
+        android:layout_marginTop="@dimen/vertical_margin_padding"
+        android:layout_marginEnd="@dimen/horizontal_margin_padding"
+        android:text="@string/cancel_description"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/tv_review_booking_cancel_title" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

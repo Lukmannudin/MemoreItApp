@@ -1,4 +1,4 @@
-package com.oleg.memoreitapp.findcity
+package com.oleg.memoreitapp.find_city
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
