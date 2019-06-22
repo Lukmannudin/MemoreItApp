@@ -2,7 +2,6 @@ package com.oleg.memoreitapp.bandung_photo_session
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,12 +15,12 @@ import com.oleg.memoreitapp.Utils.FIND_PHOTOGRAPHER_PAGE_PROFESSIONAL
 import com.oleg.memoreitapp.Utils.FIND_PHOTOGRAPHER_PAGE_SEMIPRO
 import com.oleg.memoreitapp.model.PhotoSession
 import com.oleg.memoreitapp.pick_date.PickDateActivity
-import kotlinx.android.synthetic.main.fragment_photo_session_one.*
-import kotlinx.android.synthetic.main.fragment_photo_session_one.view.*
+import kotlinx.android.synthetic.main.fragment_photo_session.*
+import kotlinx.android.synthetic.main.fragment_photo_session.view.*
 
 
 
-class PhotoSessionOneFragment : Fragment() {
+class PhotoSessionFragment : Fragment() {
 
     private var pageName: String? = null
 
@@ -41,7 +40,7 @@ class PhotoSessionOneFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_photo_session_one, container, false)
+        val view = inflater.inflate(R.layout.fragment_photo_session, container, false)
         view.rv_photo_session.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         return view
     }
@@ -66,7 +65,7 @@ class PhotoSessionOneFragment : Fragment() {
 
     companion object {
         fun newInstance(page: String) =
-                PhotoSessionOneFragment().apply {
+                PhotoSessionFragment().apply {
                     arguments = Bundle().apply {
                         putString(Utils.PAGE, page)
                     }

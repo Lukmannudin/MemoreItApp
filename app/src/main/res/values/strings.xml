@@ -16,6 +16,11 @@
         For cancellation more than one week prior to due date, free reschedule or refund up to 70% of the fee.
         For cancellation one week or less prior to due date, refund will not be given.
     </string>
+    <string name="pay_as_paypal">
+        Pay with PayPal
+
+        When you hit "Pay Now" you will be redirected to PayPal where you can complete your purchase securely.
+    </string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

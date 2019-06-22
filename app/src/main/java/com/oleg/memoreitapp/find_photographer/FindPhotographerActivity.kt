@@ -2,13 +2,12 @@ package com.oleg.memoreitapp.find_photographer
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.oleg.memoreitapp.R
 import com.oleg.memoreitapp.Utils
-import com.oleg.memoreitapp.bandung_photo_session.PhotoSessionOneFragment
+import com.oleg.memoreitapp.bandung_photo_session.PhotoSessionFragment
 import kotlinx.android.synthetic.main.activity_find_photographer.*
 
 class FindPhotographerActivity : AppCompatActivity() {
@@ -61,8 +60,8 @@ class FindPhotographerActivity : AppCompatActivity() {
 
     private fun setupViewPager(viewPager: ViewPager) {
         val adapter = PhotoSessionAdapter(supportFragmentManager)
-        adapter.addFragment(PhotoSessionOneFragment.newInstance(Utils.FIND_PHOTOGRAPHER_PAGE_SEMIPRO))
-        adapter.addFragment(PhotoSessionOneFragment.newInstance(Utils.FIND_PHOTOGRAPHER_PAGE_PROFESSIONAL))
+        adapter.addFragment(PhotoSessionFragment.newInstance(Utils.FIND_PHOTOGRAPHER_PAGE_SEMIPRO))
+        adapter.addFragment(PhotoSessionFragment.newInstance(Utils.FIND_PHOTOGRAPHER_PAGE_PROFESSIONAL))
         viewPager.adapter = adapter
     }
 }

@@ -1,7 +1,6 @@
 package com.oleg.memoreitapp.bandung_photo_session
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,7 @@ import kotlinx.android.synthetic.main.item_photo_session.view.*
 class PhotoSessionAdapter(
         private val context: Context?,
         private val dataset: List<PhotoSession>,
-        private val listener: PhotoSessionOneFragment.PhotoSessionItemListener
+        private val listener: PhotoSessionFragment.PhotoSessionItemListener
 ) :
         RecyclerView.Adapter<PhotoSessionAdapter.PhotoSessionHolder>(){
 
@@ -42,7 +41,7 @@ class PhotoSessionAdapter(
         private val btn_book = view.btn_photo_session_book_item
 
         fun bindItem(context: Context, photoSession: PhotoSession,
-                     listener: PhotoSessionOneFragment.PhotoSessionItemListener){
+                     listener: PhotoSessionFragment.PhotoSessionItemListener){
             photoThumbnail.setImageResource(photoSession.imageUrl.toInt())
             title.text = photoSession.title
             longPhotographing.text = photoSession.long.toString() + " hr"
