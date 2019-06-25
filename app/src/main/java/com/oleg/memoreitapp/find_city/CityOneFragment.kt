@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.oleg.memoreitapp.R
+import com.oleg.memoreitapp.Utils.SIMPLE_INTENT_NAME
 import com.oleg.memoreitapp.find_photographer.FindPhotographerActivity
+import com.oleg.memoreitapp.model.Order
 import kotlinx.android.synthetic.main.fragment_city_one.view.*
 
 
@@ -38,10 +40,14 @@ class CityOneFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_city_one, container, false)
 
-        view.tv_findcity_lembang_title.setOnClickListener {
+        view.btn_find_city_one_find_photographer.setOnClickListener {
             val intent = Intent(context, FindPhotographerActivity::class.java)
+            val order = Order()
+            order.city = "Bandung"
+            intent.putExtra(SIMPLE_INTENT_NAME,order)
             startActivity(intent)
         }
+
         return view
     }
 

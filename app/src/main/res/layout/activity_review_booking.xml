@@ -21,17 +21,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_review_booking_duration"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/horizontal_margin_padding"
-        android:layout_marginTop="@dimen/vertical_margin_padding"
-        android:layout_marginEnd="@dimen/horizontal_margin_padding"
-        android:text="3 hr"
-        android:textColor="@android:color/black"
-        android:textSize="@dimen/heading_3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_review_booking_title" />
+            android:id="@+id/tv_review_booking_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/horizontal_margin_padding"
+            android:layout_marginTop="@dimen/vertical_margin_padding"
+            android:text="3 hr"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/heading_3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_review_booking_title"/>
 
     <TextView
         android:id="@+id/tv_review_booking_divider_title"
@@ -45,16 +44,16 @@
         app:layout_constraintTop_toBottomOf="@id/tv_review_booking_title" />
 
     <TextView
-        android:id="@+id/tv_review_booking_divider_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/horizontal_margin_padding"
-        android:layout_marginTop="@dimen/vertical_margin_padding"
-        android:text="Rp. 2000,000"
-        android:textColor="@android:color/black"
-        android:textSize="@dimen/heading_3"
-        app:layout_constraintStart_toEndOf="@+id/tv_review_booking_divider_title"
-        app:layout_constraintTop_toBottomOf="@id/tv_review_booking_title" />
+            android:id="@+id/tv_review_booking_divider_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/horizontal_margin_padding"
+            android:layout_marginTop="@dimen/vertical_margin_padding"
+            android:text="Rp. 2000,000"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/heading_3"
+            app:layout_constraintStart_toEndOf="@+id/tv_review_booking_divider_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_review_booking_title"/>
 
     <View
         android:id="@+id/view_review_booking__top_divider"

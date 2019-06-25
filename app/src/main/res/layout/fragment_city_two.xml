@@ -7,7 +7,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingBottom="50dp"
+    >
 
         <ImageView
                 android:id="@+id/thubmnail_yogyakarta"
@@ -18,9 +20,10 @@
                 android:layout_marginEnd="@dimen/horizontal_margin_padding"
                 android:scaleType="fitXY"
                 android:src="@drawable/yogyakarta"
+                android:clickable="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
                 android:id="@+id/tv_findcity_yogyakarta_title"
@@ -28,6 +31,7 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:text="@string/city_yogyakarta"
+                android:textAllCaps="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/thubmnail_yogyakarta"
@@ -43,7 +47,7 @@
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/heading_1"
                 app:layout_constraintTop_toBottomOf="@+id/thubmnail_yogyakarta"
-                tools:layout_editor_absoluteX="0dp" />
+                tools:layout_editor_absoluteX="0dp"/>
 
         <TextView
                 android:id="@+id/tv_findcity_yogyakarta_desc"
@@ -55,9 +59,10 @@
                 android:text="@string/desc_yogyakarta"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_findcity_yogyakarta_city" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_findcity_yogyakarta_city"/>
 
         <Button
+                android:id="@+id/btn_find_city_two_find_photographer"
                 style="@style/ButtonStandard"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -67,6 +72,6 @@
                 android:textAllCaps="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_findcity_yogyakarta_desc" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_findcity_yogyakarta_desc"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

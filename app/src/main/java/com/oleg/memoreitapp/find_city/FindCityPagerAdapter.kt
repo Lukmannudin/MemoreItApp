@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 class FindCityPagerAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager) {
 
     private var mFragmentList: MutableList<Fragment> = mutableListOf()
+    private var mFragmentTitleList: MutableList<String> = mutableListOf()
 
     override fun getCount(): Int {
         return mFragmentList.size
@@ -16,8 +17,13 @@ class FindCityPagerAdapter(manager: FragmentManager) : FragmentPagerAdapter(mana
         return mFragmentList[position]
     }
 
-    fun addFragment(fragment: Fragment){
+    override fun getPageTitle(position: Int): CharSequence? {
+        return mFragmentTitleList[position]
+    }
+
+    fun addFragment(fragment: Fragment, title: String){
         mFragmentList.add(fragment)
+        mFragmentTitleList.add(title)
     }
 
 }

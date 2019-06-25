@@ -1,9 +1,12 @@
 package com.oleg.memoreitapp.review_booking
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import com.oleg.memoreitapp.R
+import com.oleg.memoreitapp.Utils
 import com.oleg.memoreitapp.add_info.AddInfoActivity
+import com.oleg.memoreitapp.model.Order
 import kotlinx.android.synthetic.main.activity_review_booking.*
 import org.jetbrains.anko.startActivity
 
@@ -15,5 +18,23 @@ class ReviewBookingActivity : AppCompatActivity() {
         btn_review_booking_country.setOnClickListener {
             startActivity<AddInfoActivity>()
         }
+
+        supportActionBar?.title = "Review Booking"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        val intent = intent.getParcelableExtra<Order>(Utils.SIMPLE_INTENT_NAME)
+        tv_review_booking_title.text = intent.service
+        tv_review_booking_duration.text = intent.duration.toString() + " hr"
+        tv_review_booking_divider_price.text = "Rp. "+intent.price.toString()
+        tv_review_booking_date.text = intent.date
+        tv_review_booking_at_time.text = intent.at
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == android.R.id.home){
+            onBackPressed()
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 }

@@ -2,6 +2,7 @@ package com.oleg.memoreitapp.payment
 
 import android.content.DialogInterface
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
@@ -18,10 +19,12 @@ class PaymentActivity : AppCompatActivity() {
         btn_booked_book.setOnClickListener {
             basicAlert()
         }
+        supportActionBar?.title = "Payment Booking"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
     }
 
     private fun basicAlert() {
-
 
         SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
             .setTitleText("Great, You’re Booked!")
@@ -31,6 +34,14 @@ class PaymentActivity : AppCompatActivity() {
             }
             .show()
 
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == android.R.id.home){
+            onBackPressed()
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
 }

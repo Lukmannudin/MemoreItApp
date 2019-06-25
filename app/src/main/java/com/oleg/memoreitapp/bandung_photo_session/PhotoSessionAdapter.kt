@@ -6,11 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.oleg.memoreitapp.R
+import com.oleg.memoreitapp.model.Order
 import com.oleg.memoreitapp.model.PhotoSession
 import kotlinx.android.synthetic.main.item_photo_session.view.*
+import java.text.NumberFormat
+import java.util.*
 
 class PhotoSessionAdapter(
-        private val context: Context?,
+        private val context: Context,
+        private val order: Order,
         private val dataset: List<PhotoSession>,
         private val listener: PhotoSessionFragment.PhotoSessionItemListener
 ) :
@@ -28,9 +32,7 @@ class PhotoSessionAdapter(
     }
 
     override fun onBindViewHolder(holder: PhotoSessionHolder, position: Int) {
-        if (context != null) {
-            holder.bindItem(context, dataset[position],listener)
-        }
+        holder.bindItem(context, dataset[position],order,listener)
     }
 
     class PhotoSessionHolder(view: View):RecyclerView.ViewHolder(view) {
@@ -40,13 +42,22 @@ class PhotoSessionAdapter(
         private val price = view.tv_photo_session_price_item
         private val btn_book = view.btn_photo_session_book_item
 
-        fun bindItem(context: Context, photoSession: PhotoSession,
+        fun bindItem(context: Context, photoSession: PhotoSession,order: Order,
                      listener: PhotoSessionFragment.PhotoSessionItemListener){
+
+            val formatRupiah = NumberFormat.getCurrencyInstance(Locale("in","ID"))
+
             photoThumbnail.setImageResource(photoSession.imageUrl.toInt())
             title.text = photoSession.title
             longPhotographing.text = photoSession.long.toString() + " hr"
-            price.text = photoSession.price.toString()
-            btn_book.setOnClickListener { listener.onPhotoSessionClick(photoSession) }
+//            price.text = photoSession.price.toString()
+            price.text = formatRupiah.format(photoSession.price)
+            btn_book.setOnClickListener {
+                order.service = title.text as String
+                order.duration =  longPhotographing.text.toString()
+                order.price = price.text.toString()
+                listener.onPhotoSessionClick(photoSession,order)
+            }
         }
     }
 }

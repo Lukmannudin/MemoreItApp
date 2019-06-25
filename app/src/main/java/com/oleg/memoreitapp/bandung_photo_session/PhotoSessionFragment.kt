@@ -13,6 +13,8 @@ import com.oleg.memoreitapp.R
 import com.oleg.memoreitapp.Utils
 import com.oleg.memoreitapp.Utils.FIND_PHOTOGRAPHER_PAGE_PROFESSIONAL
 import com.oleg.memoreitapp.Utils.FIND_PHOTOGRAPHER_PAGE_SEMIPRO
+import com.oleg.memoreitapp.Utils.SIMPLE_INTENT_NAME
+import com.oleg.memoreitapp.model.Order
 import com.oleg.memoreitapp.model.PhotoSession
 import com.oleg.memoreitapp.pick_date.PickDateActivity
 import kotlinx.android.synthetic.main.fragment_photo_session.*
@@ -22,8 +24,7 @@ import kotlinx.android.synthetic.main.fragment_photo_session.view.*
 
 class PhotoSessionFragment : Fragment() {
 
-    private var pageName: String? = null
-
+    private lateinit var order :Order
     private lateinit var adapter: PhotoSessionAdapter
 
     private val dataset: MutableList<PhotoSession> = mutableListOf()
@@ -31,7 +32,7 @@ class PhotoSessionFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            pageName = it.getString(Utils.PAGE)
+            order = it.getParcelable(Utils.ORDER)
         }
     }
 
@@ -48,12 +49,12 @@ class PhotoSessionFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setDataForPage()
-        adapter = PhotoSessionAdapter(context, dataset, itemListener)
+        adapter = context?.let { PhotoSessionAdapter(it, order, dataset, itemListener) }!!
         rv_photo_session.adapter = adapter
     }
 
     private fun setDataForPage(){
-        when(pageName) {
+        when(order.service) {
             FIND_PHOTOGRAPHER_PAGE_SEMIPRO -> {
                 dataset.addAll(PhotoSessionData.getPhotoSessionSemiPro())
             }
@@ -64,21 +65,23 @@ class PhotoSessionFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(page: String) =
+        fun newInstance(order: Order) =
                 PhotoSessionFragment().apply {
                     arguments = Bundle().apply {
-                        putString(Utils.PAGE, page)
+                        putParcelable(Utils.ORDER, order)
                     }
                 }
     }
 
     private val itemListener: PhotoSessionItemListener = object : PhotoSessionItemListener {
-        override fun onPhotoSessionClick(clickedPhotoSession: PhotoSession) {
-            startActivity(Intent(context,PickDateActivity::class.java))
+        override fun onPhotoSessionClick(clickedPhotoSession: PhotoSession, order: Order) {
+            val intent = Intent(context,PickDateActivity::class.java)
+            intent.putExtra(SIMPLE_INTENT_NAME,order)
+            startActivity(intent)
         }
     }
 
     interface PhotoSessionItemListener {
-        fun onPhotoSessionClick(clickedPhotoSession: PhotoSession)
+        fun onPhotoSessionClick(clickedPhotoSession: PhotoSession, order: Order)
     }
 }

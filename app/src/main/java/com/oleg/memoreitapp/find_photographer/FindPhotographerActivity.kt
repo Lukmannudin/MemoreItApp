@@ -1,24 +1,33 @@
 package com.oleg.memoreitapp.find_photographer
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.oleg.memoreitapp.R
 import com.oleg.memoreitapp.Utils
+import com.oleg.memoreitapp.Utils.SIMPLE_INTENT_NAME
 import com.oleg.memoreitapp.bandung_photo_session.PhotoSessionFragment
+import com.oleg.memoreitapp.model.Order
 import kotlinx.android.synthetic.main.activity_find_photographer.*
 
 class FindPhotographerActivity : AppCompatActivity() {
     var prevMenuItem: MenuItem? = null
+    private lateinit var order: Order
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_find_photographer)
 
-        findPhotographerBottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Find Photographer"
 
+        val intent = intent.getParcelableExtra<Order>(SIMPLE_INTENT_NAME)
+        order = intent
+
+        findPhotographerBottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        findPhotographerBottomNavigationView.itemIconTintList = null
         findPhotographerViewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
             }
@@ -60,8 +69,17 @@ class FindPhotographerActivity : AppCompatActivity() {
 
     private fun setupViewPager(viewPager: ViewPager) {
         val adapter = PhotoSessionAdapter(supportFragmentManager)
-        adapter.addFragment(PhotoSessionFragment.newInstance(Utils.FIND_PHOTOGRAPHER_PAGE_SEMIPRO))
-        adapter.addFragment(PhotoSessionFragment.newInstance(Utils.FIND_PHOTOGRAPHER_PAGE_PROFESSIONAL))
+        order.service = Utils.FIND_PHOTOGRAPHER_PAGE_SEMIPRO
+        adapter.addFragment(PhotoSessionFragment.newInstance(order))
+        order.service = Utils.FIND_PHOTOGRAPHER_PAGE_PROFESSIONAL
+        adapter.addFragment(PhotoSessionFragment.newInstance(order))
         viewPager.adapter = adapter
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == android.R.id.home){
+            onBackPressed()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
