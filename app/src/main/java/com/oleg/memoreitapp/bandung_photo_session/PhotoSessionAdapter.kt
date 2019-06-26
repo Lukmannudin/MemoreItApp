@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.oleg.memoreitapp.BuildConfig
 import com.oleg.memoreitapp.R
 import com.oleg.memoreitapp.model.Order
 import com.oleg.memoreitapp.model.PhotoSession
@@ -47,15 +49,21 @@ class PhotoSessionAdapter(
 
             val formatRupiah = NumberFormat.getCurrencyInstance(Locale("in","ID"))
 
-            photoThumbnail.setImageResource(photoSession.imageUrl.toInt())
+//            photoThumbnail.setImageResource(photoSession.imageUrl!!.toInt())
+            Glide.with(context)
+                .load(BuildConfig.BASE_URL +"uploads/img/"+
+                        photoSession.imageUrl)
+                .into(photoThumbnail)
+
+
             title.text = photoSession.title
-            longPhotographing.text = photoSession.long.toString() + " hr"
-//            price.text = photoSession.price.toString()
+            longPhotographing.text = photoSession.duration.toString() + " hr"
             price.text = formatRupiah.format(photoSession.price)
             btn_book.setOnClickListener {
                 order.service = title.text as String
                 order.duration =  longPhotographing.text.toString()
                 order.price = price.text.toString()
+                order.id_service = photoSession.idService.toString()
                 listener.onPhotoSessionClick(photoSession,order)
             }
         }

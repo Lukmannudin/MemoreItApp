@@ -1,12 +1,15 @@
 package com.oleg.memoreitapp.find_photographer
 
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.oleg.memoreitapp.R
 import com.oleg.memoreitapp.Utils
+import com.oleg.memoreitapp.Utils.FIND_PHOTOGRAPHER_PAGE_PROFESSIONAL
+import com.oleg.memoreitapp.Utils.FIND_PHOTOGRAPHER_PAGE_SEMIPRO
 import com.oleg.memoreitapp.Utils.SIMPLE_INTENT_NAME
 import com.oleg.memoreitapp.bandung_photo_session.PhotoSessionFragment
 import com.oleg.memoreitapp.model.Order
@@ -69,10 +72,15 @@ class FindPhotographerActivity : AppCompatActivity() {
 
     private fun setupViewPager(viewPager: ViewPager) {
         val adapter = PhotoSessionAdapter(supportFragmentManager)
+
         order.service = Utils.FIND_PHOTOGRAPHER_PAGE_SEMIPRO
-        adapter.addFragment(PhotoSessionFragment.newInstance(order))
+        adapter.addFragment(PhotoSessionFragment.newInstance(order, FIND_PHOTOGRAPHER_PAGE_SEMIPRO))
+        Log.d("cek1",order.service)
+
         order.service = Utils.FIND_PHOTOGRAPHER_PAGE_PROFESSIONAL
-        adapter.addFragment(PhotoSessionFragment.newInstance(order))
+        adapter.addFragment(PhotoSessionFragment.newInstance(order, FIND_PHOTOGRAPHER_PAGE_PROFESSIONAL))
+        Log.d("cek2",order.service)
+
         viewPager.adapter = adapter
     }
 

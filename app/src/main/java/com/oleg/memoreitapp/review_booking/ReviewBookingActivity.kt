@@ -15,19 +15,25 @@ class ReviewBookingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_review_booking)
+
+        val intent = intent.getParcelableExtra<Order>(Utils.SIMPLE_INTENT_NAME)
+
         btn_review_booking_country.setOnClickListener {
-            startActivity<AddInfoActivity>()
+
+            startActivity<AddInfoActivity>(
+                Utils.SIMPLE_INTENT_NAME to intent
+            )
         }
 
         supportActionBar?.title = "Review Booking"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val intent = intent.getParcelableExtra<Order>(Utils.SIMPLE_INTENT_NAME)
         tv_review_booking_title.text = intent.service
-        tv_review_booking_duration.text = intent.duration.toString() + " hr"
+        tv_review_booking_duration.text = intent.duration.toString()
         tv_review_booking_divider_price.text = "Rp. "+intent.price.toString()
         tv_review_booking_date.text = intent.date
         tv_review_booking_at_time.text = intent.at
+        tv_review_booking_city.text = intent.city+", "
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {

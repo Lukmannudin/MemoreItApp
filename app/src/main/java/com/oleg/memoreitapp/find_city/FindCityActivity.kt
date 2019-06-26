@@ -4,18 +4,20 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.oleg.memoreitapp.R
+import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_find_city.*
 
 class FindCityActivity : AppCompatActivity() {
 
+    private var disposable: Disposable? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_find_city)
         supportActionBar?.title = "Find City"
         setupViewPager(findcityViewPager)
-
     }
+
 
 
     private fun setupViewPager(viewPager: ViewPager) {
