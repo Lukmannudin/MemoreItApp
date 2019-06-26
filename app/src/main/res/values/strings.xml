@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">MemoreItApp</string>
-    <string name="city_lembang">lembang</string>
+    <string name="city_lembang">Lembang</string>
 
     <string name="desc_bandung">
         Also Known as “Paris van Java" or “Paris of Java”, Bandung has everything that you would find in a city famous for its beauty and romance. From the breathtaking view of nature, to the glittering city life.
@@ -9,18 +9,19 @@
     <string name="desc_yogyakarta">
         Home to two magnificent temples of Borobudur and Prambanan. But, there’s more to find in Yogyakarta than the temples. You will experience the true Javanese culture here in Yogyakarta
     </string>
-    <string name="city_yogyakarta">yogyakarta</string>
+    <string name="city_yogyakarta">Yogyakarta</string>
     <string name="cancel_description">
         For cancellation more than one week prior to due date, free reschedule or refund up to 70% of the fee.
         For cancellation one week or less prior to due date, refund will not be given.
     </string>
     <string name="pay_as_paypal">
-        Pay with PayPal
-
-        When you hit "Pay Now" you will be redirected to PayPal where you can complete your purchase securely.
+        Pay with PayPal When you hit Pay Now you will be redirected to PayPal where you can complete your purchase securely.
     </string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="transfer_description">
+        Please transfer to:\nName: Alexander Leslie\nBank Name: BCA\nAccount Number: 821 045 0603
+    </string>
 
 </resources>

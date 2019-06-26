@@ -9,6 +9,7 @@ import com.oleg.memoreitapp.model.Order
 import com.oleg.memoreitapp.payment.PaymentActivity
 import kotlinx.android.synthetic.main.activity_add.*
 import org.jetbrains.anko.startActivity
+import java.util.regex.Pattern.compile
 
 class AddInfoActivity : AppCompatActivity() {
 
@@ -30,10 +31,17 @@ class AddInfoActivity : AppCompatActivity() {
                 statusInputText = false
             }
 
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(edt_add_info_email.editText?.text?.toString()).matches()) {
+                edt_add_info_email.error = "This field has to be a valid email address"
+                statusInputText = false
+            }
+
             if (edt_add_info_phone_number.editText?.text?.isEmpty()!!) {
                 edt_add_info_phone_number.error = "Phone Number is required"
                 statusInputText = false
             }
+
+
 
             if (statusInputText) {
                 intent.name_customer = edt_add_info_name.editText?.text.toString()
@@ -50,6 +58,20 @@ class AddInfoActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         edt_add_info_email.error
+    }
+
+    private val emailRegex = compile(
+        "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                "\\@" +
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                "(" +
+                "\\." +
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                ")+"
+    )
+
+    fun String.isEmail(): Boolean {
+        return emailRegex.matcher(this).matches()
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
