@@ -73,13 +73,11 @@ class FindPhotographerActivity : AppCompatActivity() {
     private fun setupViewPager(viewPager: ViewPager) {
         val adapter = PhotoSessionAdapter(supportFragmentManager)
 
-        order.service = Utils.FIND_PHOTOGRAPHER_PAGE_SEMIPRO
+        order.service = FIND_PHOTOGRAPHER_PAGE_SEMIPRO
         adapter.addFragment(PhotoSessionFragment.newInstance(order, FIND_PHOTOGRAPHER_PAGE_SEMIPRO))
-        Log.d("cek1",order.service)
 
-        order.service = Utils.FIND_PHOTOGRAPHER_PAGE_PROFESSIONAL
+        order.service = FIND_PHOTOGRAPHER_PAGE_PROFESSIONAL
         adapter.addFragment(PhotoSessionFragment.newInstance(order, FIND_PHOTOGRAPHER_PAGE_PROFESSIONAL))
-        Log.d("cek2",order.service)
 
         viewPager.adapter = adapter
     }

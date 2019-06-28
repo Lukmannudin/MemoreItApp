@@ -24,6 +24,9 @@ data class Order(
     @SerializedName("message")
     var message:String ="",
 
+    @SerializedName("payment")
+    var payment:String ="",
+
     var city:String = "",
     var service: String  = "",
     var duration: String = "",

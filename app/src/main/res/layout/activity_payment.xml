@@ -7,6 +7,7 @@
         tools:context=".payment.PaymentActivity">
 
     <RadioGroup
+            android:id="@+id/payment_radio_group"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

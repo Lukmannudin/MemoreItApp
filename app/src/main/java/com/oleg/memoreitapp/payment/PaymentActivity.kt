@@ -3,6 +3,7 @@ package com.oleg.memoreitapp.payment
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.oleg.memoreitapp.APIRequest.PhotoSessionService
@@ -51,11 +52,22 @@ class PaymentActivity : AppCompatActivity() {
     private fun sendPost(data:Order){
         val service: PhotoSessionService = ApiService.photoSessionService
         val order = Order()
+
+        val selectedId =payment_radio_group.checkedRadioButtonId
+
+        val buttonSelected = findViewById<RadioButton>(selectedId)
+
         order.email_customer = data.email_customer
         order.name_customer = data.name_customer
         order.phone_number = data.phone_number
         order.id_service = data.id_service
         order.date_time = data.date+" "+data.at
+
+        order.payment = "Transfer"
+        if (buttonSelected.id != R.id.payment_payinperson_radio_button){
+            order.payment = "Paypal"
+        }
+
         order.message = data.message
 
         disposable = service.postOrder(order)

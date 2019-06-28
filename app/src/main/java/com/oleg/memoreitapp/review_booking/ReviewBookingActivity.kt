@@ -29,8 +29,8 @@ class ReviewBookingActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         tv_review_booking_title.text = intent.service
-        tv_review_booking_duration.text = intent.duration.toString()
-        tv_review_booking_divider_price.text = "Rp. "+intent.price.toString()
+        tv_review_booking_duration.text = intent.duration
+        tv_review_booking_divider_price.text = intent.price
         tv_review_booking_date.text = intent.date
         tv_review_booking_at_time.text = intent.at
         tv_review_booking_city.text = intent.city+", "

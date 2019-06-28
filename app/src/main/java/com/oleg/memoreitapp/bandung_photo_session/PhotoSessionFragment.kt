@@ -85,6 +85,7 @@ class PhotoSessionFragment : Fragment() {
     private val itemListener: PhotoSessionItemListener = object : PhotoSessionItemListener {
         override fun onPhotoSessionClick(clickedPhotoSession: PhotoSession, order: Order) {
             val intent = Intent(context, PickDateActivity::class.java)
+            order.city = clickedPhotoSession.city.toString()
             intent.putExtra(SIMPLE_INTENT_NAME, order)
             startActivity(intent)
         }
